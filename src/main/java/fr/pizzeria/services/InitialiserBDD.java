@@ -10,8 +10,7 @@ public class InitialiserBDD extends MenuService {
 
 	@Override
 	public void executeUC(IPizzaDao pmd, Scanner questionUser) throws PizzaException {
-		PizzaJdbcDao pjd = (PizzaJdbcDao) pmd;
-		pjd.initialiserPizzaDB();
+		pmd.initialiserPizzaDB();
 	}
 
 }

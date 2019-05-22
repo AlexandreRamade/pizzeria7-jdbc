@@ -11,6 +11,7 @@ public class Validator {
 		//Object value = null;
 		
 		for(Field field : pizza.getClass().getDeclaredFields()) {
+			field.setAccessible(true);
 			if(field.isAnnotationPresent(Rule.class)) {
 				Rule ruleAnnot = field.getAnnotation(Rule.class);
 				

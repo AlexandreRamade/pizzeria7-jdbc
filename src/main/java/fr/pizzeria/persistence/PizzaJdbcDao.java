@@ -62,7 +62,7 @@ public class PizzaJdbcDao implements IPizzaDao {
 			newPizzaSt.setString(1, pizza.getCode());
 			newPizzaSt.setString(2, pizza.getLibelle());
 			newPizzaSt.setDouble(3, pizza.getPrix());
-			newPizzaSt.setString(4, pizza.categorie.toString());
+			newPizzaSt.setString(4, pizza.getCategorie().toString());
 			newPizzaSt.executeUpdate();
 			
 		} catch (SQLException e) {
@@ -87,7 +87,7 @@ public class PizzaJdbcDao implements IPizzaDao {
 			updatePizzaSt.setString(1, pizza.getCode());
 			updatePizzaSt.setString(2, pizza.getLibelle());
 			updatePizzaSt.setDouble(3, pizza.getPrix());
-			updatePizzaSt.setString(4, pizza.categorie.toString());
+			updatePizzaSt.setString(4, pizza.getCategorie().toString());
 			updatePizzaSt.setString(5, codePizza);
 			updatePizzaSt.executeUpdate();
 		} catch (SQLException e) {

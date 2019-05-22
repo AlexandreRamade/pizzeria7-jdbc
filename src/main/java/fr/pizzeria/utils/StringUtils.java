@@ -12,6 +12,7 @@ public class StringUtils {
 		Object value = null;
 		
 		for(Field field : pizza.getClass().getDeclaredFields()) {
+			field.setAccessible(true);
 			if(field.isAnnotationPresent(ToString.class)) {
 				ToString tStrAnnot = field.getAnnotation(ToString.class);
 				try {

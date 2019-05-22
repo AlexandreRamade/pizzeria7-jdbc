@@ -59,4 +59,8 @@ public class PizzaMemDao implements IPizzaDao {
 		return false;
 	}
 
+	public void initialiserPizzaDB() {
+		
+	}
+
 }

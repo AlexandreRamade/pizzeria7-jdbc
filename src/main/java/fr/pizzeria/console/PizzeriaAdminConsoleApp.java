@@ -9,8 +9,7 @@ import fr.pizzeria.exception.PizzaException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
 import fr.pizzeria.persistence.IPizzaDao;
-import fr.pizzeria.persistence.PizzaJdbcDao;
-import fr.pizzeria.persistence.PizzaMemDao;
+import fr.pizzeria.persistence.PizzaJpaDao;
 import fr.pizzeria.services.MenuServiceFactory;
 
 public class PizzeriaAdminConsoleApp {
@@ -32,7 +31,7 @@ public class PizzeriaAdminConsoleApp {
 		pizzas.add(new Pizza("IND", "L'indienne", 14.00D, CategoriePizza.VIANDE));
 		
 		//Initialisation du Dao
-		IPizzaDao pmd = new PizzaJdbcDao(pizzas);
+		IPizzaDao pmd = new PizzaJpaDao(pizzas);
 		
 		
 		

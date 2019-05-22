@@ -1,27 +1,47 @@
 package fr.pizzeria.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import fr.pizzeria.exception.PizzaException;
 import fr.pizzeria.utils.Rule;
 import fr.pizzeria.utils.StringUtils;
 import fr.pizzeria.utils.ToString;
 import fr.pizzeria.utils.Validator;
 
+@Entity
+@Table(name="PIZZA")
 public class Pizza {
-	public static int compteurId = 0;
-	public int id;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int id;
 	
+	@Column(name="CODE")
 	@ToString(uppercase = true)
-	public String code;
+	private String code;
+	
+	@Column(name="LIBELLE")
 	@ToString(uppercase = true)
-	public String libelle;
+	private String libelle;
+	
+	@Column(name="PRIX")
 	@ToString
 	@Rule(min = 0)
-	public double prix;
+	private double prix;
+
+	@Column(name="CATEGORIE")
 	@ToString
-	public CategoriePizza categorie;
+	private CategoriePizza categorie;
 	
+	
+	public Pizza() {
+	}
+
 	public Pizza(String code, String libelle, double prix, CategoriePizza categorie) throws PizzaException {
-		this.id = ++compteurId;
 		this.code = code;
 		this.libelle = libelle;
 		this.prix = prix;
@@ -61,6 +81,15 @@ public class Pizza {
 	public int getId() {
 		return id;
 	}
+
+	public CategoriePizza getCategorie() {
+		return categorie;
+	}
+
+	public void setCategorie(CategoriePizza categorie) {
+		this.categorie = categorie;
+	}
+	
 	
 	
 	
