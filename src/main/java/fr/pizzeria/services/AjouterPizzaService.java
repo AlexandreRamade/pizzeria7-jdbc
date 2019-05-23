@@ -14,16 +14,16 @@ public class AjouterPizzaService extends MenuService {
 	public void executeUC(IPizzaDao pmd, Scanner questionUser) throws PizzaException {
 		System.out.println("----- Ajout d'une nouvelle pizza");
 		System.out.println("Veuillez saisir le code :");
-		questionUser.nextLine();			
-		String codeNouvellePizza = questionUser.nextLine();
+					
+		String codeNouvellePizza = questionUser.next();
 		
 		if(pmd.pizzaExists(codeNouvellePizza)) {
 			throw new SavePizzaException("Le code de pizza existe déjà !");
 		} else {
 			System.out.println("Veuillez saisir le nom (sans espace) :");
-			String nomNouvellePizza = questionUser.nextLine();
+			String nomNouvellePizza = questionUser.next();
 			System.out.println("Veuillez saisir le prix :");
-			Double prixNouvellePizza = questionUser.nextDouble();
+			Double prixNouvellePizza = Double.valueOf(questionUser.next());
 			
 			CategoriePizza categorie = new ListerChoixCategoriePizzaService().listerChoixCategoriePizza(questionUser);
 			

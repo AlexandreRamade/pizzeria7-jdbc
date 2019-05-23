@@ -17,11 +17,13 @@ public class PizzaMemDao implements IPizzaDao {
 	}
 
 	public void saveNewPizza(Pizza pizza) {
-		pizzas.add(pizza);
+		if(pizza != null && !pizzaExists(pizza.getCode())) {
+			pizzas.add(pizza);
+		}
 	}
 
 	public void updatePizza(String codePizza, Pizza pizza) {
-		if(pizzaExists(codePizza)) {
+		if(pizzaExists(codePizza) && pizza != null) {
 			for(int i = 0, lim = pizzas.size(); i < lim; i++) {
 				if(pizzas.get(i).getCode().equals(codePizza)) {
 					pizzas.remove(i);
@@ -32,7 +34,7 @@ public class PizzaMemDao implements IPizzaDao {
 	}
 
 	public void deletePizza(String codePizza) {
-		if(pizzaExists(codePizza)) {
+		if(codePizza != null && pizzaExists(codePizza)) {
 			for(int i = pizzas.size() - 1; i >= 0; i--) {
 				if (pizzas.get(i).getCode().equals(codePizza)) {
 					pizzas.remove(i);
@@ -42,9 +44,11 @@ public class PizzaMemDao implements IPizzaDao {
 	}
 
 	public Pizza findPizzaByCode(String codePizza) {
-		for(Pizza pizz : pizzas) {
-			if(pizz.getCode().equals(codePizza)) {
-				return pizz;
+		if(codePizza != null) {
+			for(Pizza pizz : pizzas) {
+				if(pizz.getCode().equals(codePizza)) {
+					return pizz;
+				}
 			}
 		}
 		return null;

@@ -14,18 +14,30 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
+  <!-- dependences des Tests unitaires -->
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>4.12</version>
       <scope>test</scope>
     </dependency>
+   <!-- dependence des test unitaires : mock de Scanner(System.in) -->
+   <dependency>
+   	<groupId>com.github.stefanbirkner</groupId>
+   	<artifactId>system-rules</artifactId>
+   	<version>1.16.0</version>
+   	<scope>test</scope>
+   </dependency>
+   
+   <!-- dependence de MySQL pour JDBC et JPA-->
    <dependency>
     	<groupId>mysql</groupId>
     	<artifactId>mysql-connector-java</artifactId>
     	<version>5.1.9</version>
     </dependency>
+    
+    <!-- dependence pour JPA -->
     <dependency>
     	<groupId>org.hibernate</groupId>
     	<artifactId>hibernate-java8</artifactId>

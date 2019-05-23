@@ -14,14 +14,14 @@ public class ListerChoixCategoriePizzaService {
 		CategoriePizza[] categories = CategoriePizza.values();
 		while(choixCategorieInvalide){
 			try {
-			System.out.println("Veuillez choisir la cat�gorie :");
+			System.out.println("Veuillez choisir la catégorie :");
 			int indexCateg = 0;
 			for(CategoriePizza categ : categories) {
 				System.out.println(indexCateg + ". " + categ.toString());
 				indexCateg++;
 			}
 			indexCategChoixUser = questionUser.nextInt();
-				if(indexCategChoixUser < indexCateg) {
+				if(-1 < indexCategChoixUser && indexCategChoixUser < indexCateg) {
 					choixCategorieInvalide = false;
 				} else {
 					throw new CategorieNumberException("La valeur indiquée ne corespond à aucune catégorie de pizza.");
